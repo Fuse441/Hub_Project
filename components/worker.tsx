@@ -4,6 +4,7 @@ import { Image } from '@heroui/image'
 import { works } from '@/config/work';
 import {Accordion, AccordionItem} from "@heroui/accordion";
 import { Link } from '@heroui/link';
+import { Button } from '@heroui/button';
 function Worker() {
     const workerIcon = ""
   return (
@@ -20,6 +21,7 @@ function Worker() {
         <p className='whitespace-pre-line'>
             {work.description}
             </p>
+            {/* <Button onPress={onOpen}>Open Modal</Button> */}
           </AccordionItem>
           </Accordion>
           {/* <div className='flex flex-row'>
