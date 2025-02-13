@@ -1,46 +1,45 @@
+"use client";
 
-
-import { projects } from "@/config/projects";
-import {Card, CardHeader, CardBody, CardFooter} from "@heroui/card";
-import {Divider} from "@heroui/divider"
-import {Image} from "@heroui/image"
-import { Link } from "@heroui/link";
-
+import { Pagination } from "@heroui/pagination";
+import { useState, useEffect } from "react";
+import { stacks } from '@/config/stack';
+import Stack from "@/components/stacks";
+import Worker from "@/components/worker";
+import { Divider } from "@heroui/divider";
 export default function Home() {
-  return ( <div className="flex justify-between">
-    <section className="flex flex-col m-10">
-      <h1 className="font-bold text-7xl">Hello I'm</h1>
-      <br></br>
-      <h2 className="text-3xl">Jiranon Khemklad</h2>
-      <h2>software engineer</h2>
-    </section>
-    <section className="flex flex-col m-5">
-    <Card className="max-w-[400px]">
-      <CardHeader className="flex gap-3">
-        <Image
-          alt="heroui logo"
-          height={40}
-          radius="sm"
-          src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
-          width={40}
-        />
-        <div className="flex flex-col">
-          <p className="text-md">HeroUI</p>
-          <p className="text-small text-default-500">heroui.com</p>
-        </div>
-      </CardHeader>
-      <Divider />
-      <CardBody>
-        <p>Make beautiful websites regardless of your design experience.</p>
-      </CardBody>
-      <Divider />
-      <CardFooter>
-        <Link isExternal showAnchorIcon href="https://github.com/heroui-inc/heroui">
-          Visit source code on GitHub.
-        </Link>
-      </CardFooter>
-    </Card>
-    </section>
+  const [total, setTotal] = useState(stacks.length);
+  const [current, setCurrent] = useState(1); // เริ่มต้นจากหน้า 1
+
+  // การคำนวณการแสดงข้อมูลตามหน้า
+  const itemsPerPage = 1; // กำหนดจำนวนโปรเจกต์ที่จะแสดงในแต่ละหน้า
+  const currentPageItems = stacks.slice(
+    (current - 1) * itemsPerPage,
+    current * itemsPerPage
+  );
+
+
+
+  return (
+    <>
+    <div className="flex justify-between">
+      <section className="flex flex-col m-10">
+        <h1 className="font-bold text-7xl">Hello I'm</h1>
+        <h2 className="text-3xl">Jiranon Khemklad</h2>
+        <h2>Software Engineer</h2>
+      </section>
+
+      <section className="flex m-5">
+      <Stack></Stack>
+       </section>
+      
+     
+      
+     
     </div>
+    <Divider></Divider>
+     <section className="pt-10">
+     <Worker></Worker>
+     </section>
+     </>
   );
 }

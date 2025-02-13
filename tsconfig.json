@@ -22,7 +22,8 @@
     "paths": {
       "@/*": ["./*"],
       "@heroui" : ["./node_modules/@heroui/*"],
-      "config" : ["./config/*"]
+      "config" : ["./config/*"],
+      "public" : ["./public/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
