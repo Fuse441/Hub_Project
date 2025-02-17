@@ -30,8 +30,8 @@ function Stack() {
   }, [theme]);
 
   return (
-    <div className="flex flex-col">
-      <Card className="max-w-[600px]">
+    <div className="flex flex-col max-w-[600px] min-w-[250px]">
+      <Card className="w-full">
         <CardHeader className="flex gap-3">
           {/* <Image
               alt="heroui logo"
@@ -45,7 +45,7 @@ function Stack() {
           </div>
         </CardHeader>
         <Divider />
-        <CardBody className="flex flex-row w-[450px] flex-wrap">
+        <CardBody className="flex flex-row w-full flex-wrap">
           {stacks
             .filter((item) => item.category == stackTitle[current - 1])
             .map((stack, index) => (
