@@ -28,7 +28,9 @@ function Worker() {
                     ? "Visit source code on GitHub."
                     : "ไม่สามารถเผยแพร่ได้"}
                 </Link>
+              
                 <Gallery images={work.images} />
+           
                 <br />
                 <p className="whitespace-pre-wrap">{work.description}</p>
               </AccordionItem>

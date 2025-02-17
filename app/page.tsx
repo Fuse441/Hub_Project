@@ -26,7 +26,7 @@ export default function Home() {
           <h2>Software Engineer</h2>
         </section>
 
-        <section className="flex m-5">
+        <section className="flex m-5 ">
           <Stack />
         </section>
       </div>

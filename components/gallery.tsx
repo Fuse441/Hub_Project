@@ -27,10 +27,11 @@ function Gallery({ images }: { images: string[] }) {
       <Button onPress={onOpen} isDisabled={images.length > 0 ? false : true}>
         {images.length > 0 ? "ตัวอย่าง" : "ไม่สามารถเพยแพร่ได้"}
       </Button>
-      <Modal backdrop={backdrop} isOpen={isOpen} size="4xl" onClose={onClose}>
+     
+      <Modal placement={"center"} backdrop={backdrop} isOpen={isOpen} size="4xl" onClose={onClose} >
         <ModalContent>
           {(onClose) => (
-            <>
+            < >
               <ModalHeader className="flex flex-col gap-1">Gallery</ModalHeader>
               <ModalBody>
                 <div key={currentPage} className="justify-center flex">
@@ -56,6 +57,7 @@ function Gallery({ images }: { images: string[] }) {
           )}
         </ModalContent>
       </Modal>
+    
     </>
   );
 }
