@@ -6,6 +6,7 @@ import { Divider } from "@heroui/divider";
 import { stacks } from "@/config/stack";
 import Stack from "@/components/stacks";
 import Worker from "@/components/worker";
+import Card from "@/components/card";
 export default function Home() {
   const [total, setTotal] = useState(stacks.length);
   const [current, setCurrent] = useState(1); // เริ่มต้นจากหน้า 1
@@ -19,6 +20,7 @@ export default function Home() {
 
   return (
     <>
+    <Card></Card>
       <div className="flex flex-col sm:flex-row">
         <section className="flex flex-col m-10">
           <h1 className="font-bold text-7xl">Hello I&apos;m</h1>

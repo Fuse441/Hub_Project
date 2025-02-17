@@ -28,13 +28,21 @@
   "@heroui/theme": "2.4.5",
   "@react-aria/ssr": "3.9.7",
   "@react-aria/visually-hidden": "3.8.18",
+  "@react-three/drei": "^9.121.5",
+  "@react-three/fiber": "^8.17.14",
+  "@react-three/rapier": "^1.5.0",
+  "@studio-freight/lenis": "^1.0.25",
   "clsx": "2.1.1",
   "framer-motion": "11.13.1",
+  "framer-motion-3d": "^10.16.4",
   "intl-messageformat": "^10.5.0",
+  "leva": "^0.9.35",
+  "meshline": "^3.3.1",
   "next": "15.0.4",
   "next-themes": "^0.4.4",
   "react": "18.3.1",
-  "react-dom": "18.3.1"
+  "react-dom": "18.3.1",
+  "three": "^0.173.0"
  },
  "devDependencies": {
   "@next/eslint-plugin-next": "15.0.4",
