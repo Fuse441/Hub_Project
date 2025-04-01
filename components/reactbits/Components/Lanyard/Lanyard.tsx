@@ -1,4 +1,7 @@
+/* eslint-disable react/no-unknown-property */
+/* eslint-disable prettier/prettier */
 "use client";
+
 import { useEffect, useRef, useState } from "react";
 import { Canvas, extend, useFrame } from "@react-three/fiber";
 import {
@@ -18,7 +21,8 @@ import {
 } from "@react-three/rapier";
 import * as THREE from "three";
 import { MeshLineGeometry, MeshLineMaterial } from "meshline";
-// const cardGLB  = useGLTF("card.glb") 
+
+// const cardGLB  = useGLTF("card.glb")
 // const cardGLB = "card.glb";
 import lanyard from "./HUB_PROJECT.png";
 // import { cardGLB } from '/models/card.glb';
@@ -33,24 +37,26 @@ interface LanyardProps {
 export default function Lanyard({
   position = [0, 0, 30],
   gravity = [0, -40, 0],
-  fov = 20,
+  fov = 10,
   transparent = true,
 }: LanyardProps) {
   return (
     <div className="relative z-0 w-full h-full flex justify-end items-start">
       <Canvas
-      className="absolute w-full h-full"
+        className="absolute w-full h-full"
         camera={{ position, fov }}
         gl={{ alpha: transparent }}
         onCreated={({ gl }) =>
           gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1)
         }
       >
+     
         <ambientLight intensity={Math.PI} />
         <Physics gravity={gravity} timeStep={1 / 60}>
-          <Band />
+        <Band  />
         </Physics>
         <Environment blur={0.75}>
+      
           <Lightformer
             intensity={2}
             color="white"
@@ -112,7 +118,7 @@ function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
     linearDamping: 4,
   };
 
-  const { nodes, materials } =  useGLTF("cardProfile.glb") 
+  const { nodes, materials } = useGLTF("cardProfile.glb");
   console.log("nodes, materials ==> ", nodes, materials);
   const texture = useTexture(lanyard.src);
   const [curve] = useState(
@@ -122,7 +128,7 @@ function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
         new THREE.Vector3(),
         new THREE.Vector3(),
         new THREE.Vector3(),
-      ])
+      ]),
   );
   const [dragged, drag] = useState<false | THREE.Vector3>(false);
   const [hovered, hover] = useState(false);
@@ -176,15 +182,15 @@ function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
       [j1, j2].forEach((ref) => {
         if (!ref.current.lerped)
           ref.current.lerped = new THREE.Vector3().copy(
-            ref.current.translation()
+            ref.current.translation(),
           );
         const clampedDistance = Math.max(
           0.1,
-          Math.min(1, ref.current.lerped.distanceTo(ref.current.translation()))
+          Math.min(1, ref.current.lerped.distanceTo(ref.current.translation())),
         );
         ref.current.lerped.lerp(
           ref.current.translation(),
-          delta * (minSpeed + clampedDistance * (maxSpeed - minSpeed))
+          delta * (minSpeed + clampedDistance * (maxSpeed - minSpeed)),
         );
       });
       curve.points[0].copy(j3.current.translation());
@@ -203,7 +209,7 @@ function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
 
   return (
     <>
-      <group position={[0, 4, 0]}>
+      <group position={[5, 4, 0]}>
         <RigidBody
           ref={fixed}
           {...segmentProps}
@@ -258,23 +264,29 @@ function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
               drag(
                 new THREE.Vector3()
                   .copy(e.point)
-                  .sub(vec.copy(card.current.translation()))
+                  .sub(vec.copy(card.current.translation())),
               );
             }}
           >
-          <mesh geometry={(nodes.card as THREE.Mesh).geometry}>
-  <meshPhysicalMaterial
-    map={(materials.base as THREE.MeshStandardMaterial).map}
-    map-anisotropy={16}
-    clearcoat={1}
-    clearcoatRoughness={0.15}
-    roughness={0.9}
-    metalness={0.8}
-  />
-</mesh>
-<mesh geometry={(nodes.clip as THREE.Mesh).geometry} material={materials.metal} material-roughness={0.3} />
-<mesh geometry={(nodes.clamp as THREE.Mesh).geometry} material={materials.metal} />
-
+            <mesh geometry={(nodes.card as THREE.Mesh).geometry}>
+              <meshPhysicalMaterial
+                map={(materials.base as THREE.MeshStandardMaterial).map}
+                map-anisotropy={16}
+                clearcoat={1}
+                clearcoatRoughness={0.15}
+                roughness={0.9}
+                metalness={0.8}
+              />
+            </mesh>
+            <mesh
+              geometry={(nodes.clip as THREE.Mesh).geometry}
+              material={materials.metal}
+              material-roughness={0.3}
+            />
+            <mesh
+              geometry={(nodes.clamp as THREE.Mesh).geometry}
+              material={materials.metal}
+            />
           </group>
         </RigidBody>
       </group>

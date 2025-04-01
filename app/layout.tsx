@@ -45,7 +45,7 @@ export default function RootLayout({
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex flex-col h-screen">
             <Navbar />
-            <div className="absolute w-[100%] h-[500px] ">
+            <div className="absolute w-[100%] h-[400px] ">
    <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} /> 
 
     </div>

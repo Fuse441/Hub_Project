@@ -22,7 +22,6 @@ export default function Home() {
 
   return (
     <>
-   
       <div className="flex flex-col sm:flex-row">
         <section className="flex flex-col m-10">
           <h1 className="font-bold text-7xl">Hello I&apos;m</h1>
