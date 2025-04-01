@@ -118,8 +118,19 @@ function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
     linearDamping: 4,
   };
 
-  const { nodes, materials } = useGLTF("cardProfile.glb");
-  console.log("nodes, materials ==> ", nodes, materials);
+  const [modelPath, setModelPath] = useState("cardProfile.glb");
+  const { nodes, materials } = useGLTF(modelPath);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setModelPath((prevPath) =>
+        prevPath === "cardProfile.glb" ? "cardProfile2.glb" : "cardProfile.glb"
+      );
+    }, 10000); // เปลี่ยนโมเดลทุก 10 วินาที
+
+    return () => clearInterval(interval); // Cleanup เมื่อ component ถูก unmount
+  }, []);
+  // console.log("nodes, materials ==> ", nodes, materials);
   const texture = useTexture(lanyard.src);
   const [curve] = useState(
     () =>
@@ -273,6 +284,7 @@ function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
                 map={(materials.base as THREE.MeshStandardMaterial).map}
                 map-anisotropy={16}
                 clearcoat={1}
+             
                 clearcoatRoughness={0.15}
                 roughness={0.9}
                 metalness={0.8}
@@ -297,6 +309,7 @@ function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
           depthTest={false}
           resolution={isSmall ? [1000, 2000] : [1000, 1000]}
           useMap
+          
           map={texture}
           repeat={[-4, 1]}
           lineWidth={1}
