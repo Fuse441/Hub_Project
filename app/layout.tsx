@@ -8,6 +8,7 @@ import { Providers } from "./providers";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
+import Lanyard from "@/components/reactbits/Components/Lanyard/Lanyard";
 
 export const metadata: Metadata = {
   title: {
@@ -44,6 +45,10 @@ export default function RootLayout({
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex flex-col h-screen">
             <Navbar />
+            <div className="absolute w-[100%] h-[500px] ">
+   <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} /> 
+
+    </div>
             <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
               {children}
             </main>

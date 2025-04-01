@@ -1,9 +1,10 @@
-interface IWorks {
-  images: string[];
+export interface IWorks {
   projectName: string;
-  description: string;
   link?: string;
+  images: string[];
+  description: string;
 }
+
 interface Image {
   name: string;
   link: string;
