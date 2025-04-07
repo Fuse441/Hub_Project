@@ -39,7 +39,7 @@ const experiences = [
   },
 ];
 
-export const AboutMe = () => {
+const AboutMe = () => {
   return (
     <div className="mx-auto px-4 py-8 max-w-5xl ">
        <h2 className="text-4xl font-semibold mb-3 text-start">About Me</h2>
