@@ -2,26 +2,18 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   name: "Workfolio",
-  description: "Make beautiful websites regardless of your design experience.",
+  description: "Personal portfolio of Jiranon Khemklad (Fuse) showcasing experience in web application development and script automation. This site highlights key projects, technical skills, and work experience through a clean, modern design and subtle animations—reflecting a creative and detail-oriented developer.",
   navItems: [
     {
       label: "Home",
       href: "/",
-    },
-    {
-      label: "About Me",
-      href: "/about",
-    },
+    }
   ],
   navMenuItems: [
     {
       label: "Home",
       href: "/",
-    },
-    {
-      label: "About Me",
-      href: "/about",
-    },
+    }
   ],
   links: {
     github: "https://github.com/Fuse441",

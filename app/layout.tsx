@@ -46,9 +46,8 @@ export default function RootLayout({
           <div className="relative flex flex-col h-screen">
             <Navbar />
             <div className="absolute w-[100%] h-[400px] ">
-   <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} /> 
-
-    </div>
+              <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
+            </div>
             <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
               {children}
             </main>
@@ -60,7 +59,7 @@ export default function RootLayout({
                 title="heroui.com homepage"
               >
                 <span className="text-default-600">Powered by</span>
-                <p className="text-primary">HeroUI</p>
+                <p className="text-primary">Next JS And HeroUI (Fuse)</p>
               </Link>
             </footer>
           </div>

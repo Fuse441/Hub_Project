@@ -1,25 +1,14 @@
+/* eslint-disable prettier/prettier */
 "use client";
 
-import { useState } from "react";
 import { Divider } from "@heroui/divider";
+import { InView } from "react-intersection-observer";
 
-import { stacks } from "@/config/stack";
+import AboutMe from "./about/page";
 import Stack from "@/components/stacks";
 import Worker from "@/components/worker";
-import dynamic from "next/dynamic";
-import Lanyard from "@/components/reactbits/Components/Lanyard/Lanyard";
 
 export default function Home() {
-  const [total, setTotal] = useState(stacks.length);
-  const [current, setCurrent] = useState(1); // เริ่มต้นจากหน้า 1
-
-  // การคำนวณการแสดงข้อมูลตามหน้า
-  const itemsPerPage = 1; // กำหนดจำนวนโปรเจกต์ที่จะแสดงในแต่ละหน้า
-  const currentPageItems = stacks.slice(
-    (current - 1) * itemsPerPage,
-    current * itemsPerPage,
-  );
-
   return (
     <>
       <div className="flex flex-col sm:flex-row">
@@ -34,7 +23,27 @@ export default function Home() {
         </section>
       </div>
       <Divider />
+      <Divider />
+
+      <section>
+        <InView threshold={0.2} >
+          {({ inView, ref }) => (
+            <div
+              ref={ref}
+              className={`transition duration-700 ease-in-out  ${inView ? "opacity-100 -translate-y-4" : "opacity-0"}`}
+            >
+              <AboutMe/>  
+            </div>
+          )}
+        </InView>
+      </section>
+
+      <Divider />
       <section className="pt-10">
+        <h1 className="text-5xl font-bold flex justify-center mb-5 animate-fadeZoomIn">
+          Web Application / Script Automation
+        </h1>
+
         <Worker />
       </section>
     </>

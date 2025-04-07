@@ -1,40 +1,57 @@
 import React from "react";
-import { Accordion, AccordionItem } from "@heroui/accordion";
-import { Link } from "@heroui/link";
 
 import { works as worksRaw, type IWorks } from "@/config/work";
-import Gallery from "@/components/gallery";
-
+import { Link } from "@heroui/link";
+import { Card, CardBody } from "@heroui/card";
+import { Image } from "@heroui/image";
+import { Chip } from "@heroui/chip";
+import { InView } from "react-intersection-observer";
 function Worker() {
   const workerIcon = "";
   const works: IWorks[] = worksRaw; // 🔥 Cast ให้ชัดเจนตรงนี้
 
   return (
-    <div>
+    <div className="w-full flex flex-col items-center gap-3">
       {works.map((work, index) => (
-        <div key={index} className="mb-5">
-          <Accordion variant="splitted" key={index}>
-            <AccordionItem
-              aria-label={work.projectName}
-              title={work.projectName.toUpperCase()}
-            >
-              <Link
-                isExternal
-                showAnchorIcon
-                className="mb-10 mr-2"
-                href={work.link}
+        <div key={index}>
+          {/* Left Side: Text Content */}
+
+          <InView threshold={1}>
+            {({ inView, ref }) => (
+              <div
+                ref={ref}
+                className={`transition duration-700 ease-in-out  ${inView ? "opacity-100 -translate-y-4" : "opacity-0"}`}
               >
-                {work.link
-                  ? "Visit source code on GitHub."
-                  : "ไม่สามารถเผยแพร่ได้"}
-              </Link>
+                <div
+                  className={`flex ${index % 2 !== 0 ? "flex-row-reverse" : "flex-row"}  gap-6 w-11/12 max-w-4xl relative`}
+                >
+                  <div className=" w-full  flex flex-col gap-3 p-6 ">
+                    <p className="text-sm font-semibold">Featured Project</p>
+                    <h3 className="text-2xl font-bold ">{work.projectName}</h3>
+                    <Card className="">
+                      <CardBody>
+                        <p className="whitespace-pre-line">
+                          {work.description}
+                        </p>
+                      </CardBody>
+                    </Card>
+                    <Link className="text-sm  underline" href={work.link}>
+                      {work.link
+                        ? "Visit source code on GitHub."
+                        : "ไม่สามารถเผยแพร่ได้"}
+                    </Link>
+                  </div>
 
-              <Gallery images={work.images} />
-
-              <br />
-              <p className="whitespace-pre-wrap">{work.description}</p>
-            </AccordionItem>
-          </Accordion>
+                  <div className="w-[250px] h-[250px] flex items-center justify-center">
+                    <Image
+                      className="max-w-full max-h-full object-contain  shadow-xl border-solid border-2  hover:scale-125 "
+                      src={work.logo}
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
+          </InView>
         </div>
       ))}
     </div>
