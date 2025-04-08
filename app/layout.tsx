@@ -9,6 +9,8 @@ import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
 import Lanyard from "@/components/reactbits/Components/Lanyard/Lanyard";
+import Particles from "@/components/reactbits/Backgrounds/Particles/Particles";
+
 
 export const metadata: Metadata = {
   title: {
@@ -43,11 +45,26 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen">
+      
+          <div className="flex flex-col ">
             <Navbar />
+            <div className="absolute  w-[100%]  h-[480%]">
+                            <Particles
+                              particleColors={["#3f2664", "#ffffff"]}
+                              particleCount={700}
+                              particleSpread={10}
+                              speed={0.1}
+                              particleBaseSize={350}
+                              moveParticlesOnHover={false}
+                              alphaParticles={false}
+                              disableRotation={false}
+                              className={undefined}
+                            />
+                          </div>
             <div className="absolute w-[100%] h-[400px] ">
               <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
             </div>
+                
             <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
               {children}
             </main>

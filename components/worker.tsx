@@ -16,7 +16,7 @@ function Worker() {
         <div key={index}>
           {/* Left Side: Text Content */}
 
-          <InView threshold={1}>
+          <InView threshold={0.2}>
             {({ inView, ref }) => (
               <div
                 ref={ref}

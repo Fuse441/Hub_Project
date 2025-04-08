@@ -7,10 +7,12 @@ import { InView } from "react-intersection-observer";
 import AboutMe from "./about/page";
 import Stack from "@/components/stacks";
 import Worker from "@/components/worker";
+import Particles from "@/components/reactbits/Backgrounds/Particles/Particles";
 
 export default function Home() {
   return (
     <>
+ 
       <div className="flex flex-col sm:flex-row">
         <section className="flex flex-col m-10">
           <h1 className="font-bold text-7xl">Hello I&apos;m</h1>
