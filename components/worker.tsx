@@ -23,7 +23,7 @@ function Worker() {
                 className={`transition duration-700 ease-in-out  ${inView ? "opacity-100 -translate-y-4" : "opacity-0"}`}
               >
                 <div
-                  className={`flex flex-col md:${index % 2 !== 0 ? "flex-row-reverse" : "flex-row"} gap-6 w-11/12 max-w-4xl relative`}
+                  className={`flex flex-col ${index % 2 !== 0 ? "md:flex-row-reverse" : "md:flex-row"} gap-6 w-11/12 max-w-4xl relative`}
                 >
                   <div className=" w-full  flex flex-col gap-3 p-6 ">
                     <p className="text-sm font-semibold">Featured Project</p>
