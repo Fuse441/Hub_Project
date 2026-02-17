@@ -30,7 +30,7 @@ const experiences = [
   {
     title: "Software Developer (API)",
     company: "Entronica Co., Ltd",
-    duration: "In Progress (8 months)",
+    duration: "In Progress ( 1 year 4 months)",
     current: true,
     description:
       "Focusing on backend development, API management, Kubernetes, and system analysis.",
@@ -45,9 +45,14 @@ const AboutMe = () => {
        <h2 className="text-4xl font-semibold mb-3 text-start">About Me</h2>
       <h1 className="text-3xl font-bold mb-4 text-start">
         Jiranon Khemklad (Fuse)
+      
       </h1>
+              <p className="">🦀 Currently diving into Rust programming language 🟩 Learning NeoVim (manual config + AstroNvim)</p>
+      <p className="mb-6 text-start"></p>
       <div className="text-center mb-6 text-start">
         <p className="">📧 Email: jiranon.khemklad@gmail.com</p>
+        <p className="">📞 Phone: +66 96 039 6654</p>
+        <p className="">📍 Location: Bangkok, Thailand</p>
         <p className="">
           🔗 GitHub:{" "}
           <Link className="" href="https://github.com/Fuse441">

@@ -170,4 +170,26 @@ SwaggerUI-View is an upgraded version that builds upon the XLSX to Swagger API b
     feature: ``,
     link: "https://github.com/Fuse441/survey_epm",
   },
-];
+  {
+  images: ["Work/rustLoadX/rustLoadX.png"],
+  projectName: "rustLoadX",
+  logo: "logoProject/rustLoadX.png",
+  description: `Project Overview
+rustLoadX is a high-performance CLI-based Kafka Load Testing Tool built with Rust. 
+It is designed to benchmark Kafka producer throughput, measure latency, and analyze system stability in real time through a terminal-based interface.
+
+The tool focuses on performance, concurrency, and observability, making it suitable for stress testing Kafka clusters and validating infrastructure scalability.`,
+  
+  feature: `Key Features
+  🚀 High-throughput Kafka producer load testing
+  📊 Real-time Terminal UI (TUI) metrics display
+  ⚡ Concurrent async message production (Tokio-based)
+  📈 Throughput & latency monitoring (Avg, P95, P99)
+  🎯 Configurable message size, batch size, and concurrency
+  🔍 Error tracking & performance visibility
+  🦀 Built with Rust for safety and performance`,
+  
+  link: "https://github.com/Fuse441/rustLoadX",
+}
+
+  ];
