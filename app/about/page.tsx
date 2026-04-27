@@ -30,7 +30,7 @@ const experiences = [
   {
     title: "Software Developer (API)",
     company: "Entronica Co., Ltd",
-    duration: "In Progress ( 1 year 4 months)",
+    duration: "In Progress ( September 2024 - Current 2026 )",
     current: true,
     description:
       "Focusing on backend development, API management, Kubernetes, and system analysis.",
