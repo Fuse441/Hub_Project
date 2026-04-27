@@ -60,7 +60,7 @@ const AboutMe = () => {
           </Link>
           <br />
           🔗 Curriculum Vitae ME:{" "}
-          <Link download className="" href="/CV_Jiranon.pdf">
+          <Link download className="" href="/CV_Jiranon_2026.pdf">
             Download Click
           </Link>
         </p>
